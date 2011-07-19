@@ -1,6 +1,17 @@
 Eaweb::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  root :to =>'sites#home'
+  
+  match "/home_path" => 'sites#home'
+
+  match "/services_path" => 'sites#services'
+
+  get "sites/portfolio"
+
+  match "/about_path" => 'sites#about'
+
+  match "/contact_path" => 'sites#contact'
+
+  # The priority is based upon order of creation:created -> highest priority.
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

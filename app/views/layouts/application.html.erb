@@ -1,14 +1,107 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Eaweb</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
+<title>EZ Able Web</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<%= stylesheet_link_tag :all%>
+<%=javascript_include_tag 'jquery-1.3.2.min.js' %>
+<%=javascript_include_tag 'jquery.cycle.all.min.js' %>
+<%= csrf_meta_tag %>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#slideshow').cycle({
+        fx:     'fade',
+        speed:  'slow',
+        timeout: 3000,
+        pager:  '#slider_nav',
+        pagerAnchorBuilder: function(idx, slide) {
+            // return sel string for existing anchor
+            return '#slider_nav li:eq(' + (idx) + ') a';
+        }
+    });
+});
+</script>
 </head>
 <body>
-
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+	  <div class="logo"><a href="index.html"><img src="images/logo.gif" width="232" height="74" border="0" alt="logo" /></a></div>
+	  <div class="clr"></div>
+	  <div class="menu">
+	    <ul>
+	      <li class="<%=is_active?("home") %>">
+		    <%= link_to('/home_path') do %>
+		      <span>Home</span>
+		    <% end %>
+		  </li>
+	      <li class="<%=is_active?("services") %>">
+			<%= link_to("/services_path") do %>
+			  <span>Services</span>
+			<% end %>
+		  </li>
+	      <li><a href="about.html"><span>Portfolio</span></a></li>
+	      <li class="<%=is_active?("about") %>">
+			<%= link_to("/about_path") do %>
+			  <span>About Us</span>
+			<% end %>
+		  </li>
+	      <li class="<%=is_active?("contact") %>">
+			<%= link_to("/contact_path") do %>
+			  <span>Contact Us</span>
+			<% end %>
+		  </li>
+	    </ul>
+	  </div>
+	 <div class="click">
+	   <p>Click here to live Support Tell Free 1-866-123-675</p>
+	  </div>
+    <div class="clr"></div>
+    <div class="slider_main">
+      <div class="leftt">
+        <h2>We'll make sure your <br />
+          website works for you...</h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
+        <a href="#"><img src="images/view_port.gif" alt="picture" width="136" height="33" border="0" /></a></div>
+      <div id="slider">
+        <!-- start slideshow -->
+        <div id="slideshow">
+          <div class="slider-item"><a href="#"><img src="images/simple_img_1.jpg" alt="icon" width="648" height="303" border="0" /></a></div>
+          <div class="slider-item"><a href="#"><img src="images/simple_img_2.jpg" alt="icon" width="648" height="303" border="0" /></a></div>
+          <div class="slider-item"><a href="#"><img src="images/simple_img_3.jpg" alt="icon" width="648" height="303" border="0" /></a></div>
+        </div>
+        <!-- end #slideshow -->
+        <div class="controls-center">
+          <h2>Your company's welcome message or slogan. </h2>
+          <p>Lorem ipsum dolor sit amet, consectur el.</p>
+          <div id="slider_controls">
+            <ul id="slider_nav">
+              <li><a href="#"></a></li>
+              <!-- Slide 1 -->
+              <li><a href="#"></a></li>
+              <!-- Slide 2 -->
+              <li><a href="#"></a></li>
+              <!-- Slide 3 -->
+            </ul>
+          </div>
+        </div>
+        <div class="clr"></div>
+      </div>
+      <div class="clr"></div>
+    </di	
+	</div>
 <%= yield %>
-
+    <div class="clr"></div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="left">© Copyright EZ Able Web Development . All Rights Reserved. <a href="#"> Home</a> | <a href="#">Contact</a> | <a href="#">RSS </a></p>
+      <p class="right">() <a href="http://www.ezable.com">Website Design and Development</a></p>
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+  </div>
+</div>
 </body>
 </html>
+
