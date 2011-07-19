@@ -33,34 +33,34 @@
 	        <span> Ut enim ad minim veniam, quis nostrud exercitation </span> </h2>
 	      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium mque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 	      <p>&nbsp;</p>
-	      <form action="contact.php" method="post" id="contactform">
-	        <ol>
+	      <%= form_for(:contact, :url => {:controller =>'sites', :action =>'contact'}) do |f| %>
+	        <ul>
 	          <li>
-	            <label for="name">First Name <span class="red">*</span></label>
-	            <input id="name" name="name" class="text" />
+	            <label for="name">Name</label></br>
+	            <%= f.text_field   :name %>
 	          </li>
 	          <li>
-	            <label for="email">Your email <span class="red">*</span></label>
-	            <input id="email" name="email" class="text" />
+	            <label for="email">Your email</label></br>
+	            <%= f.text_field :email %>
 	          </li>
 	          <li>
-	            <label for="company">Company</label>
-	            <input id="company" name="company" class="text" />
+	            <label for="company">Company</label></br>
+	            <%= f.text_field :company %>
 	          </li>
 	          <li>
-	            <label for="subject">Subject</label>
-	            <input id="subject" name="subject" class="text" />
+	            <label for="subject">Subject</label></br>
+	            <%= f.text_field   :subject %>
 	          </li>
 	          <li>
-	            <label for="message">Message <span class="red">*</span></label>
-	            <textarea id="message" name="message" rows="6" cols="50"></textarea>
+	            <label for="message">Message </label></br>
+	            <%= f.text_area :message %>
 	          </li>
 	          <li class="buttons">
 	            <input type="image" name="imageField" id="imageField" src="images/send.gif" class="send" />
 	            <div class="clr"></div>
 	          </li>
-	        </ol>
-	      </form>
+	        </ul>
+	      <% end %>
 	      <p>&nbsp;</p>
 	      <p>&nbsp;</p>
 	    </div>
